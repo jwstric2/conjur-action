@@ -1,6 +1,8 @@
 #!/bin/bash
 # Conjur Secret Retrieval for GitHub Action conjur-action
 
+set -x
+
 main() {
     create_pem
     conjur_authn
