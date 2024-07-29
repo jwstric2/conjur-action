@@ -103,7 +103,8 @@ set_secrets() {
             echo "::error::Malformed authorization token. Please check your Conjur account, username, and API key. If using authn-jwt, check your Host ID annotations are correct."
             exit 1
         fi
-	echo "Secret is ${secretVal)"
+	
+	echo "${envVar}=${secretVal}"
         echo ::add-mask::"${secretVal}" # Masks the value in all logs & output
         echo "${envVar}=${secretVal}" >> "${GITHUB_ENV}" # Set environment variable
     done
