@@ -47,7 +47,8 @@ conjur_authn() {
 		else
             echo "::debug Authenticating without certificate"
 			token=$(curl --request POST "$INPUT_URL/authn-jwt/$INPUT_AUTHN_ID/$INPUT_ACCOUNT/authenticate" --header 'Content-Type: application/x-www-form-urlencoded' --header "Accept-Encoding: base64" --data-urlencode "jwt=$JWT_TOKEN")
-		fi
+			curl --request POST "$INPUT_URL/authn-jwt/$INPUT_AUTHN_ID/$INPUT_ACCOUNT/authenticate" --header 'Content-Type: application/x-www-form-urlencoded' --header "Accept-Encoding: base64" --data-urlencode "jwt=$JWT_TOKEN" -v
+                fi
 
 	else
 		echo "::debug Authenticate using Host ID & API Key"
